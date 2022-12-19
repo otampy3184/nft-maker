@@ -1,13 +1,16 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
+import React from 'react'
+import { useEffect, useState } from 'react'
+import NFTMaker from './abi/NFTMaker.json'
+import { ethers } from 'ethers'
+import './App.css'
+import { sign } from 'crypto'
 
 const App = () => {
   const CONTRACT_ADDRESS = "0xE2e0Cb146b13AA1C15a62e52Bc69D58496596438"
 
   const [currentAccount, setCurrentAccount] = useState("")
 
-  console.log("currentAccount:", currentAccount);
+  console.log("currentAccount:", currentAccount)
 
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window
@@ -36,6 +39,20 @@ const App = () => {
     }
   }
 
+  const mintNft = async () => {
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        CONTRACT_ADDRESS,
+        NFTMaker.abi,
+        signer
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
@@ -45,6 +62,12 @@ const App = () => {
       Connect to Wallet
     </button>
   );
+
+  const renderMintNft = () => {
+    <button onClick={mintNft} className="cta-button">
+      Mint NFT
+    </button>
+  }
 
   return (
     <div className="App">
