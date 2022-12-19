@@ -2,12 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import './App.css';
 
-interface Window {
-  ethereum: any;
-}
-
-declare var window: Window
-
 const App = () => {
   const CONTRACT_ADDRESS = "0xE2e0Cb146b13AA1C15a62e52Bc69D58496596438"
 
