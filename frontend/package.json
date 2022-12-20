@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "web3.storage": "^4.4.0"
   }
 }
