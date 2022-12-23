@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@mui/material": "^5.11.1",
     "ethers": "^5.7.2",
     "web3.storage": "^4.4.0"
   }

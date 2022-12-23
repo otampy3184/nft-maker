@@ -1,9 +1,11 @@
 import React from 'react'
+import { Button } from '@mui/material';
 import { useEffect, useState } from 'react'
 import NFTMaker from './abi/NFTMaker.json'
 import { ethers } from 'ethers'
 import { Web3Storage } from 'web3.storage'
 import './App.css'
+import { render } from '@testing-library/react';
 
 const App = () => {
   const API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDEyZUM3OTFBREM0NGYyMmI0ODlmNEYxQTk1ODk2ODM2M0RGRUVGNzAiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjUyMzU4NjIzMTgsIm5hbWUiOiJuZnQtbWFrZXIifQ.ozxz5s4zkcGENyU9kr_pLRK1p4LBgqgGAULJRqcwxcQ";
@@ -93,6 +95,10 @@ const App = () => {
         <p>ここにドラッグ＆ドロップ</p>
       </div>
       <input className="nftUploadInput" multiple name="imageURL" type="file" accept=".jpg , .jpeg , .png" onChange={uploadToIpfs} />
+      <button>
+        ファイルを選択
+        <input className="nftUploadInput" type="file" accept=".jpg , .jpeg , .png" onChange={uploadToIpfs} />
+      </button>
     </div>
   }
 
